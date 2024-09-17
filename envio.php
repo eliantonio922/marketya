@@ -56,15 +56,15 @@ if (isset($_SESSION['idCliente'])) {
                     <h3>Datos de quien recibe</h3>
                     <div class="form-group">
                         <label for="">Nombre</label>
-                        <input type="text" name="nombreRec" id="nombreRec" class="form-control" value="<?php echo $rowRec['nombre'] ?>">
+                        <input type="text" name="nombreRec" id="nombreRec" class="form-control" value="nombre">
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" name="emailRec" id="emailRec" class="form-control" value="<?php echo $rowRec['email'] ?>">
+                        <input type="email" name="emailRec" id="emailRec" class="form-control" value="email">
                     </div>
                     <div class="form-group">
                         <label for="">Direccion</label>
-                        <textarea name="direccionRec" id="direccionRec" class="form-control" row="3"><?php echo $rowRec['direccion'] ?></textarea>
+                        <textarea name="direccionRec" id="direccionRec" class="form-control" row="3"></textarea>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">

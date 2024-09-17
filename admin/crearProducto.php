@@ -6,11 +6,14 @@ if (isset($_REQUEST['guardar'])) {
     $existencia = mysqli_real_escape_string($con, $_REQUEST['existencia'] ?? '');
     $precio = (mysqli_real_escape_string($con, $_REQUEST['precio'] ?? ''));
     $nombre = mysqli_real_escape_string($con, $_REQUEST['nombre'] ?? '');
+    $imagen = mysqli_real_escape_string($con, $_REQUEST['imagen'] ?? '');
+    $descripcion= mysqli_real_escape_string($con, $_REQUEST['descripcion'] ?? '');
+
     $id = mysqli_real_escape_string($con, $_REQUEST['id'] ?? '');
 
     $query = "INSERT INTO productos
-        (existencia, precio, nombre) VALUES
-        ('" . $existencia . "','" . $precio . "','" . $nombre . "');
+        (existencia, precio, nombre, imagen, descripcion) VALUES
+        ('" . $existencia . "','" . $precio . "','" . $nombre . "','" . $imagen. "','" .  $descripcion ."');
         ";
     $res = mysqli_query($con, $query);
     if ($res) {
@@ -56,6 +59,14 @@ if (isset($_REQUEST['guardar'])) {
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input type="text" name="nombre" class="form-control"  required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen</label>
+                                <input type="text" name="imagen" class="form-control"  required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion</label>
+                                <input type="text" name="descripcion" class="form-control"  required="required" >
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>

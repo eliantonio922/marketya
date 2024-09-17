@@ -44,7 +44,7 @@ $rowProducto = mysqli_fetch_assoc($resProducto);
         <div class="row mt-4">
             <nav class="w-100">
                 <div class="nav nav-tabs" id="product-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
+                    <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Descripcion</a>
                 </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent">

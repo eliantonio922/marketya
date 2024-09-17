@@ -7,9 +7,11 @@ if (isset($_REQUEST['guardar'])) {
     $precio = (mysqli_real_escape_string($con, $_REQUEST['precio'] ?? ''));
     $nombre = mysqli_real_escape_string($con, $_REQUEST['nombre'] ?? '');
     $id = mysqli_real_escape_string($con, $_REQUEST['id'] ?? '');
+    $imagen = mysqli_real_escape_string($con, $_REQUEST['imagen'] ?? '');
+    $descripcion= mysqli_real_escape_string($con, $_REQUEST['descripcion'] ?? '');
 
     $query = "UPDATE productos SET
-        existencia='" . $existencia . "',precio='" . $precio . "',nombre='" . $nombre . "'
+        existencia='" . $existencia . "',precio='" . $precio . "',nombre='" . $nombre . "',imagen='" . $imagen . "',descripcion='" . $descripcion . "'
         where id='".$id."';
         ";
     $res = mysqli_query($con, $query);
@@ -18,7 +20,7 @@ if (isset($_REQUEST['guardar'])) {
     } else {
 ?>
         <div class="alert alert-danger" role="alert">
-            Error al crear producto <?php echo mysqli_error($con); ?>
+            Error al editar producto <?php echo mysqli_error($con); ?>
         </div>
 <?php
     }
@@ -35,7 +37,7 @@ $row=mysqli_fetch_assoc($res);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Crear producto</h1>
+                    <h1>Editar producto</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -55,11 +57,19 @@ $row=mysqli_fetch_assoc($res);
                             </div>
                             <div class="form-group">
                                 <label>Precio</label>
-                                <input type="text" name="precio" class="form-control"  value="<?php echo $row['precio'] ?>required="required" >
+                                <input type="text" name="precio" class="form-control"  value="<?php echo $row['precio'] ?>" required="required" >
                             </div>
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre'] ?>"  required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen</label>
+                                <input type="text" name="imagen" class="form-control"  required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion</label>
+                                <input type="text" name="descripcion" class="form-control"  required="required" >
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="id" value="<?php echo $row['id'] ?>" >
